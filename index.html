@@ -15,19 +15,30 @@
 <body>
 <div class="page">
   <section class="card register" ng-app>
-  <form name="myform">
+  <form name="myform" novalidate>
+  <!-- novalidate : empêcher
+les règles de validation par défaut du navigateur pour les manipuler par les directives angular-->
 
     <div class="textintro">
       <h1>Validation de Formulaire</h1>
       <p>Veuillez remplir le formulaire suivant</p>
-      <p>{{message}}</p>
     </div>
 
     <fieldset>
-      <input type="text" name="firstname" placeholder="Prénom" ng-model="message">
-      <input type="text" name="lastname"placeholder="Nom">
-      <input type="email" name="email"placeholder="Email">
-      <input type="password" name="password"placeholder="Mot de Passe">
+      <input type="text" name="firstname" placeholder="Prénom" ng-model="user.firstname" ng-required="true">
+      <!-- afficher ce msg lorsque "Prénom" est vide -->
+      <p clas="error validationerror" ng-show="myform.firstname.$invalid && myform.firstname.$touched">Votre Prénom est obligatoire</p>
+
+      <input type="text" name="lastname"placeholder="Nom" ng-model="user.lastname" ng-required="true">
+      <!-- afficher ce msg lorsque "Nom" est vide -->
+      <p clas="error validationerror" ng-show="myform.lastname.$invalid && myform.lastname.$touched">Votre Nom est obligatoire</p>
+
+      <input type="email" name="email"placeholder="Email" ng-model="user.email" ng->
+       <p clas="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Votre Email n'est pas valide</p>
+
+      <input type="password" name="password"placeholder="Mot de Passe" ng-model="user.password" ng-minlength="6">
+      <p clas="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Le mot de passe doit avoir plus que 6 caractères</p>
+
     </fieldset>
 
     <button type="submit" class="btn">Soumettre</button>
