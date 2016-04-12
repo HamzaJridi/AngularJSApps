@@ -617,3 +617,21 @@ nav li a:hover {
 }
 
 .checkinslist h3 { color: #657B83; }
+/* colorer en rouge les champs invalides et dèja touchés*/ 
+input.ng-invalid.ng-touched {
+	border:1px solid #DA3637;
+}
+/* colorer en vert les champs valides et et dèja touchés*/ 
+input.ng-valid.ng-touched {
+	border:1px solid #509D12;
+}
+
+/* colorer en gris le boutton "soumettre" si le formualaire n'est pas encore valide*/ 
+.ng-invalid .btn {
+	background-color : gray;
+}
+
+.error {
+	color: red;
+	padding-bottom : 10px;
+}

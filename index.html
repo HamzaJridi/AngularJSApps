@@ -27,17 +27,17 @@ les règles de validation par défaut du navigateur pour les manipuler par les d
     <fieldset>
       <input type="text" name="firstname" placeholder="Prénom" ng-model="user.firstname" ng-required="true">
       <!-- afficher ce msg lorsque "Prénom" est vide -->
-      <p clas="error validationerror" ng-show="myform.firstname.$invalid && myform.firstname.$touched">Votre Prénom est obligatoire</p>
+      <p class="error validationerror" ng-show="myform.firstname.$invalid && myform.firstname.$touched">Votre Prénom est obligatoire</p>
 
       <input type="text" name="lastname"placeholder="Nom" ng-model="user.lastname" ng-required="true">
       <!-- afficher ce msg lorsque "Nom" est vide -->
-      <p clas="error validationerror" ng-show="myform.lastname.$invalid && myform.lastname.$touched">Votre Nom est obligatoire</p>
+      <p class="error validationerror" ng-show="myform.lastname.$invalid && myform.lastname.$touched">Votre Nom est obligatoire</p>
 
-      <input type="email" name="email"placeholder="Email" ng-model="user.email" ng->
-       <p clas="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Votre Email n'est pas valide</p>
+      <input type="email" name="email"placeholder="Email" ng-model="user.email" ng-required="true">
+       <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Votre Email n'est pas valide</p>
 
-      <input type="password" name="password"placeholder="Mot de Passe" ng-model="user.password" ng-minlength="6">
-      <p clas="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Le mot de passe doit avoir plus que 6 caractères</p>
+      <input type="password" name="password"placeholder="Mot de Passe" ng-model="user.password" ng-minlength="6" ng-required="true">
+      <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Le mot de passe doit avoir plus que 6 caractères</p>
 
     </fieldset>
 
