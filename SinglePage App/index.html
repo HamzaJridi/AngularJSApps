@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Single Page AngularJS App</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+</head>
+
+<body>
+<ul>
+    <li><a href="#pageOne">page One</a></li>
+    <li><a href="#pageTwo">page Two</a></li>
+    <li><a href="#pageThree">page Three</a></li>
+</ul>
+
+<div ng-view></div>
+</body>
+</html>
