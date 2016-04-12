@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Validation Formulaire</title>
+  <script src="js/lib/angular/angular.min.js"></script>
+</head>
+<body>
+<div class="page">
+  <section ng-app>
+  <form name="myform">
+
+    <div>
+      <h1>Validation de Formulaire</h1>
+      <p>Veuillez remplir le formulaire suivant</p>
+      <p>{{message}}</p>
+    </div>
+
+    <fieldset>
+      <input type="text" name="firstname" placeholder="Prénom" ng-model="message">
+      <input type="text" name="lastname"placeholder="Nom">
+      <input type="email" name="email"placeholder="Email">
+      <input type="password" name="password"placeholder="Mot de Passe">
+    </fieldset>
+
+    <button type="submit" class="btn">Soumettre</button>
+  </form>
+</section>
+</div>
+</body>
+</html>
