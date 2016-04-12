@@ -3,14 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Validation Formulaire</title>
+  <!--controler les layout pour les navigateurs des mobiles -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <!--télécharger le font "Lato" -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,100,700,900" rel="stylesheet" type="text/css">
+  <!--intégrer les libs AngularJS -->
   <script src="js/lib/angular/angular.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 </head>
 <body>
 <div class="page">
-  <section ng-app>
+  <section class="card register" ng-app>
   <form name="myform">
 
-    <div>
+    <div class="textintro">
       <h1>Validation de Formulaire</h1>
       <p>Veuillez remplir le formulaire suivant</p>
       <p>{{message}}</p>
