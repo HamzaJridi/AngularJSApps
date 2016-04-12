@@ -9,19 +9,23 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,100,700,900" rel="stylesheet" type="text/css">
   <!--intégrer les libs AngularJS -->
   <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/app.js"></script>
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 </head>
 <body>
 <div class="page">
-  <section class="card register" ng-app>
-  <form name="myform" novalidate>
+  <section class="card register" ng-app="myApp" ng-controller="RegistrationController">
+  <form name="myform" ng-submit="register()" novalidate>
   <!-- novalidate : empêcher
-les règles de validation par défaut du navigateur pour les manipuler par les directives angular-->
+les règles de validation par défaut du navigateur pour les manipuler par les directives angular--> 
 
     <div class="textintro">
       <h1>Validation de Formulaire</h1>
       <p>Veuillez remplir le formulaire suivant</p>
+      <!-- ce 'p' est affiché lorsque on a la variable 'message' qui depend du boutton soumettre--> 
+      <p ng-show="message">{{ message }}</p>
     </div>
 
     <fieldset>
