@@ -3,18 +3,21 @@ var pageControllers = angular.module('pageControllers', []);
 pageControllers.controller('PageOne', ['$scope', '$http', function($scope, $http){
     $http.get('js/data.json').success(function(_data){
         $scope.data=_data;
+        $scope.pageClass = 'page-one';
     });
 }]);
 
 pageControllers.controller('PageTwo', ['$scope', '$http', function($scope, $http){
     $http.get('js/data.json').success(function(_data){
         $scope.data=_data;
+        $scope.pageClass = 'page-two';
     });
 }]);
 
 pageControllers.controller('PageThree', ['$scope', '$http', function($scope, $http){
     $http.get('js/data.json').success(function(_data){
         $scope.data=_data;
+        $scope.pageClass = 'page-three';
     });
 }]);
 
