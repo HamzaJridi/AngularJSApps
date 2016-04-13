@@ -6,6 +6,7 @@
 	<script src="js/lib/angular.min.js"></script>
 	<script src="js/app.js"></script>
 	<style>
+	/*styling the done task with a line-through*/
 		.done { 
 			text-decoration: line-through;
 			color:#ccc;
@@ -14,14 +15,22 @@
 </head>
 <body>
 	<div ng-controller="ToDoCtrl">
+		<!-- addTodo() will add tasks and display them after filling the input field -->
 		<form name="frm" ng-submit="addTodo()" novalidate>
 			<input type="text" name="newtodo" ng-model="newTodo" ng-required="true">
+			<!-- the submit button'll be disabled if the input field is empty -->
 			<button ng-disabled="frm.$invalid">Submit</button>
 		</form>
+		<!-- clearCompleted() will clear the complted tasks from the page -->
 		<button ng-click="clearCompleted()">Clear Completed</button>
 		<ul>
+			<!-- displaying the tasks titles with ngRepeat directive -->
 			<li ng-repeat="todo in todos">
+				<!--ng-model="todo.done" : todo contains objects from the todos array,
+					done = true/false
+				-->
 				<input type="checkbox" ng-model="todo.done" />
+				<!-- add a 'done' class to all done tasks -->
 				<span ng-class="{'done':todo.done}">{{todo.title}}</span>
 			</li>
 		</ul>
