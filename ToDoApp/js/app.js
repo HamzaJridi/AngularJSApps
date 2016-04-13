@@ -18,7 +18,7 @@ ToDo.controller('ToDoCtrl', ['$scope', function($scope) {
 			'done' : false
 		});
 		//disabling the submit btn when the input field is empty
-		$scope.newTodo = ''
+		//$scope.newTodo = ''
 	};
 
 	//delete done tasks from the page
