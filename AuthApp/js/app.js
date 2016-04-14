@@ -1,4 +1,7 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp',
+    ['ngRoute', 'firebase'])
+    //add a const that contain the fire base app's url
+    .constant('FIREBASE_URL', 'https://angauth1.firebaseio.com/');
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
