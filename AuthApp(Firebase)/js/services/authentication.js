@@ -18,7 +18,7 @@ myApp.factory('Authentication',
         });
 
 
-        return {
+        var myObject = {
             //the user param is from the reg ctrller
             login: function(user){
                 auth.$authWithPassword({
@@ -46,8 +46,8 @@ myApp.factory('Authentication',
                     //get data from form's input fields
                     email: user.email,
                     password : user.password
-                    //usr promise to be sure that firebase has succefully created a user
                 }).then(function(regUser){
+                    //usr promise to be sure that firebase has succefully created a user
                     var regRef = new Firebase(FIREBASE_URL + 'users')
                         .child(regUser.uid).set({
                             date: Firebase.ServerValue.TIMESTAMP,
@@ -57,7 +57,9 @@ myApp.factory('Authentication',
                             email:user.email
                         });//user infos
 
-                    $rootScope.message = "Hi " + user.firstname + ", Thanks for registering";
+                    //log in the user after registering
+                    myObject.login(user);
+
                     //catch an error in case of a used email
                 }).catch(function(error){
                     $rootScope.message = error.message;
@@ -65,4 +67,6 @@ myApp.factory('Authentication',
                 })//create user
             }//register
         };
+
+        return myObject
     }]);//factory
