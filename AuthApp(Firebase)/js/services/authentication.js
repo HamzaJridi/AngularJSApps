@@ -1,10 +1,22 @@
 myApp.factory('Authentication',
-    ['$rootScope', '$location', '$firebaseAuth','FIREBASE_URL',
-    function($rootScope, $location, $firebaseAuth, FIREBASE_URL){
-        //create an obj to refer to the app's url
+    ['$rootScope', '$location', '$firebaseAuth', '$firebaseObject','FIREBASE_URL',
+    function($rootScope, $location, $firebaseAuth, $firebaseObject,FIREBASE_URL){
+        //create afirebase obj to refer to the app's url
         var ref = new Firebase(FIREBASE_URL);
         //hold the auth data from firebase
         var auth = $firebaseAuth(ref);
+
+        //display msg to the logged user
+        auth.$onAuth(function(authUser) {
+           if (authUser) {
+               var userRef = new Firebase(FIREBASE_URL + 'users/' + authUser.uid);
+               var userObj = $firebaseObject(userRef);
+               $rootScope.currentUser = userObj;
+           } else {
+               $rootScope.currentUser = '';
+           }
+        });
+
 
         return {
             //the user param is from the reg ctrller
@@ -19,6 +31,14 @@ myApp.factory('Authentication',
                     $rootScope.message = error.message ;
                 });
             },//login
+
+            logout:function() {
+                return auth.$unauth();
+            },//logout
+
+            requireAuth: function() {
+                return auth.$requireAuth();
+            },//require Authentication
 
             register:function(user) {
                 //create a new user with email and pwd

@@ -300,6 +300,20 @@ nav li a:hover {
   color: #E76C5A;
 }
 
+.userinfo {
+    text-align: center;
+    font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+    padding-bottom: 5px;
+}
+
+.userinfo a {
+    color: #2D8BCF;
+}
+
+.userinfo input {
+    width: auto;
+}
+
 input.ng-invalid.ng-touched {
   border: 1px solid #DA3637;
 }
