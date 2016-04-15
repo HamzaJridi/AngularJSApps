@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AngularJS & Bootstrap Modal</title>
+
+    <script src="js/lib/jquery-2.2.2.min.js"></script>
+
     <!-- Angular Libs -->
     <script src="js/lib/angular/angular.min.js"></script>
     <script src="js/lib/angular/angular-route.min.js"></script>
@@ -26,12 +29,11 @@
     <h1>Form Modal</h1>
     <button ng-click="toggleModal()" class="btn btn-primary">Open Model</button>
 
-    <modal title="Login Form" ng-show="showModal">
+    <modal title="Login form" visible="showModal">
         <form name="myform" novalidate>
             <div class="textintro">
                 <h1>Welcome Here!!</h1>
-                <p>Please Log-In</p>
-                <h2 class="error validationerror">{{errormsg}}</h2>
+                <h3>Please Log-In</h3>
             </div>
 
             <fieldset>
@@ -43,6 +45,7 @@
             </fieldset>
 
             <button type="submit" class="btn" ng-disabled="myform.$invalid">Login</button>
+            <a href="#home"></a>
         </form>
     </modal>
 </div>
