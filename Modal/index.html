@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AngularJS & Bootstrap Modal</title>
+    <!-- Angular Libs -->
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular/angular-route.min.js"></script>
+    <script src="js/lib/angular/angular-animate.min.js"></script>
+
+    <!-- Bootstrap Libs -->
+    <script src="js/lib/bootstrap/bootstrap.min.js"></script>
+
+    <!-- My scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+<div class="container" ng-controller="ModalCtrl">
+    <h1>Form Modal</h1>
+    <button ng-click="toggleModal()" class="btn btn-primary">Open Model</button>
+
+    <modal title="Login Form" ng-show="showModal">
+        <form name="myform" novalidate>
+            <div class="textintro">
+                <h1>Welcome Here!!</h1>
+                <p>Please Log-In</p>
+                <h2 class="error validationerror">{{errormsg}}</h2>
+            </div>
+
+            <fieldset>
+                <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true"/>
+                <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched"> Please enter a valid Email</p>
+
+                <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true"/>
+                <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
+            </fieldset>
+
+            <button type="submit" class="btn" ng-disabled="myform.$invalid">Login</button>
+        </form>
+    </modal>
+</div>
+</body>
+</html>
