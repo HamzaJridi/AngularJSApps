@@ -1,6 +1,6 @@
 myApp.controller('LoginCtrl',
-    ['$scope', '$http', '$location',
-    function($scope, $http, $location) {
+    ['$scope', '$http', '$location', '$rootScope' ,
+    function($scope, $http, $location, $rootScope) {
         $http.get('js/data.json').success(function(data) {
            $scope.data= data;
            $scope.log=function(){
@@ -12,14 +12,18 @@ myApp.controller('LoginCtrl',
                    }
                }
                if (j>0) {
+                   $rootScope.isLogin = true;
                    $location.path('/home');
                } else {
                    alert('login incorrect')
                    $scope.user.email = '';
                    $scope.user.password = '';
                }
+           };
 
-            };
-
+           $rootScope.logOut = function() {
+               $location.path('/login');
+               $rootScope.isLogin = false;
+           }
         });
     }]);

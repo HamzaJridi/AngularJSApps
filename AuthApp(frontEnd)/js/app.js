@@ -7,6 +7,13 @@ myApp.config(['$routeProvider', function($routeProvider) {
             controller : 'LoginCtrl'
         })
         .when('/home', {
+            resolve: {
+                "check" : function($location, $rootScope){
+                    if(!$rootScope.isLogin){
+                        $location.path('/login');
+                    }
+                }
+            },
             templateUrl : 'views/home.html',
             controller : 'HomeCtrl'
         })
