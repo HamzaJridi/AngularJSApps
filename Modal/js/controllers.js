@@ -2,19 +2,20 @@ var myApp = angular.module('myApp', []);
 
 myApp.controller('ModalCtrl', ['$scope', function($scope) {
     $scope.showModal = false;
-    $scope.errormsg = "Please type a valid email and pwd"
     $scope.toggleModal = function() {
         $scope.showModal = !$scope.showModal;
     };
 }]);
 
+
+//"modal" is the ang custom modal created in index.html
 myApp.directive('modal', function() {
    return {
        template: '<div class="modal fade">' +
        '<div class="modal-dialog">' +
        '<div class="modal-content">' +
        '<div class="modal-header">' +
-       '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
+       '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + // &times = X button
        '<h4 class="modal-title">{{ title }}</h4>' +
        '</div>' +
        '<div class="modal-body" ng-transclude></div>' +
