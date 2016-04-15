@@ -6,8 +6,8 @@ myApp.config(['$routeProvider', function($routeProvider) {
             templateUrl : 'views/login.html',
             controller : 'LoginCtrl'
         })
-        .when('home', {
-            templaterl : 'views/home.html',
+        .when('/home', {
+            templateUrl : 'views/home.html',
             controller : 'HomeCtrl'
         })
         .otherwise({
