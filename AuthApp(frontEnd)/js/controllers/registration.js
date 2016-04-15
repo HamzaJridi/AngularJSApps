@@ -20,7 +20,6 @@ myApp.controller('LoginCtrl',
                    $scope.user.password = '';
                }
            };
-
            $rootScope.logOut = function() {
                $location.path('/login');
                $rootScope.isLogin = false;
