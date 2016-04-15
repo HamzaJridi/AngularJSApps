@@ -4,18 +4,15 @@ myApp.controller('LoginCtrl',
         $http.get('js/data.json').success(function(data) {
            $scope.data= data;
            $scope.log=function(){
-               var j=0;
                for (var i =0; i < $scope.data.length; i++) {
-
                    if($scope.user.email==$scope.data[i].email && $scope.user.password==$scope.data[i].password) {
-                       j++;
+                       $rootScope.isLogin = true;
                    }
                }
-               if (j>0) {
-                   $rootScope.isLogin = true;
+               if ($rootScope.isLogin) {
                    $location.path('/home');
                } else {
-                   alert('login incorrect')
+                   $scope.errormsg = "Sorry, your Email and Password are not valid"
                    $scope.user.email = '';
                    $scope.user.password = '';
                }
