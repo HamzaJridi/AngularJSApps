@@ -7,7 +7,7 @@ myApp.controller('LoginCtrl',
                var j=0;
                for (var i =0; i < $scope.data.length; i++) {
 
-                   if($scope.user.name==$scope.data[i].name && $scope.user.password==$scope.data[i].password) {
+                   if($scope.user.email==$scope.data[i].email && $scope.user.password==$scope.data[i].password) {
                        j++;
                    }
                }
@@ -15,7 +15,7 @@ myApp.controller('LoginCtrl',
                    $location.path('/home');
                } else {
                    alert('login incorrect')
-                   $scope.user.name = '';
+                   $scope.user.email = '';
                    $scope.user.password = '';
                }
 
